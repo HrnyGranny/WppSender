@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Loop Sender</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-title">WhatsApp Loop Sender</div>
+        <div class="navbar-links">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="content-container">
+        <!-- Left side - Form -->
+        <div class="left-panel">
+            <div class="form-box">
+                <div class="title">Script Generator</div>
+                <div class="form-content">
+                    <!-- Text to send -->
+                    <div class="form-group">
+                        <label for="messageText">Messages to Send:</label>
+                        <textarea id="messageText" class="inbox-input" placeholder="Enter messages here (one per line)...">Hello</textarea>
+                    </div>
+                    
+                    <!-- Settings dropdowns -->
+                    <div class="settings-container">
+                        <div class="form-group">
+                            <label for="messageDelay">Delay Between Messages:</label>
+                            <select class="styled-dropdown" id="messageDelay">
+                                <option value="100">100ms (Fast)</option>
+                                <option value="250" selected>250ms (Default)</option>
+                                <option value="500">500ms (Medium)</option>
+                                <option value="1000">1000ms (Slow)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cycleDelay">Delay Between Cycles:</label>
+                            <select class="styled-dropdown" id="cycleDelay">
+                                <option value="1000">1s (Quick)</option>
+                                <option value="2000" selected>2s (Default)</option>
+                                <option value="5000">5s (Medium)</option>
+                                <option value="10000">10s (Long)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Additional options -->
+                    <div class="form-group">
+                        <label for="splitOption">Split Messages By:</label>
+                        <select class="styled-dropdown" id="splitOption">
+                            <option value="lines" selected>Lines (Default)</option>
+                            <option value="commas">Commas</option>
+                            <option value="semicolons">Semicolons</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Generate button -->
+                    <button class="submit-btn" id="generateBtn">Generate Script!</button>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="instructions-box">
+                <div class="title">How to Use</div>
+                <ol class="instructions-list">
+                    <li>Configure your message settings above</li>
+                    <li>Click "Generate Script" to create your custom script</li>
+                    <li>Copy the generated code</li>
+                    <li>Open WhatsApp Web in your browser</li>
+                    <li>Open a chat where you want to send messages</li>
+                    <li>Press F12 to open browser Developer Tools</li>
+                    <li>Navigate to the "Console" tab</li>
+                    <li>Paste the code and press Enter</li>
+                    <li>To stop the script, refresh the page</li>
+                </ol>
+                <div class="warning">⚠️ Use responsibly. Excessive message sending may result in temporary blocks.</div>
+            </div>
+        </div>
+
+        <!-- Right side - Code Display -->
+        <div class="right-panel">
+            <div class="code-display">
+                <div class="code-header">
+                    <span>Generated Script</span>
+                    <button class="copy-btn" id="copyBtn">Copy</button>
+                </div>
+                <pre id="codeArea" class="code-with-highlighting"><span class="comment">// Click "Generate Script" to create your WhatsApp sender</span></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 WhatsApp Loop Sender - All rights reserved</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

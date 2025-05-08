@@ -1,0 +1,416 @@
+/* Variables globales */
+:root {
+    --input-focus: #2d8cf0;
+    --font-color: #323232;
+    --font-color-sub: #666;
+    --bg-color: #fff;
+    --bg-color-alt: #f5f5f5;
+    --main-color: #323232;
+    --box-shadow: 4px 4px var(--main-color);
+    --border: 2px solid var(--main-color);
+    --border-radius: 5px;
+    
+    /* Code highlighting colors (retro style) */
+    --code-keyword: #8959a8;
+    --code-string: #718c00;
+    --code-comment: #969896;
+    --code-function: #4271ae;
+    --code-variable: #c82829;
+    --code-operator: #3e999f;
+    --code-number: #f5871f;
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-color: var(--bg-color-alt);
+    color: var(--font-color);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: var(--bg-color);
+    border-bottom: var(--border);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-title {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--main-color);
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: var(--font-color);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--input-focus);
+}
+
+.nav-link:hover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--input-focus);
+    bottom: -3px;
+    left: 0;
+}
+
+/* Container for main content */
+.content-container {
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    flex: 1;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+/* Left panel */
+.left-panel {
+    flex: 0 0 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+    padding-right: 5px;
+    max-height: calc(100vh - 90px);
+}
+
+/* Form box styling */
+.form-box {
+    background-color: lightgrey;
+    border-radius: var(--border-radius);
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+}
+
+.title {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 900;
+    text-align: center;
+    color: var(--main-color);
+}
+
+.title-small {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+    color: var(--main-color);
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--main-color);
+    font-size: 14px;
+}
+
+/* Input and textarea styling */
+.inbox-input {
+    width: 100%;
+    height: 80px;
+    resize: none;
+    border-radius: var(--border-radius);
+    border: var(--border);
+    background-color: var(--bg-color);
+    box-shadow: var(--box-shadow);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--font-color);
+    padding: 8px;
+    outline: none;
+    font-family: monospace;
+}
+
+.inbox-input:focus {
+    border-color: var(--input-focus);
+}
+
+.inbox-input::placeholder {
+    color: var(--font-color-sub);
+    opacity: 0.8;
+}
+
+/* Settings container */
+.settings-container {
+    display: flex;
+    gap: 10px;
+}
+
+.settings-container .form-group {
+    flex: 1;
+}
+
+/* Dropdown styling */
+.styled-dropdown {
+    width: 100%;
+    height: 35px;
+    border-radius: var(--border-radius);
+    border: var(--border);
+    background-color: var(--bg-color);
+    box-shadow: var(--box-shadow);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--font-color);
+    padding: 5px 8px;
+    outline: none;
+    cursor: pointer;
+}
+
+.styled-dropdown:focus {
+    border-color: var(--input-focus);
+}
+
+/* Submit button */
+.submit-btn {
+    width: 150px;
+    height: 35px;
+    border-radius: var(--border-radius);
+    border: var(--border);
+    background-color: var(--bg-color);
+    box-shadow: var(--box-shadow);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--font-color);
+    cursor: pointer;
+    transition: all 0.2s;
+    margin: 5px auto 0;
+}
+
+.submit-btn:hover {
+    background-color: var(--input-focus);
+    color: white;
+}
+
+.submit-btn:active {
+    box-shadow: 0px 0px var(--main-color);
+    transform: translate(3px, 3px);
+}
+
+/* Instructions box */
+.instructions-box {
+    background-color: lightgrey;
+    border-radius: var(--border-radius);
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    padding: 15px;
+    flex-shrink: 0;
+
+    /* Add this to set a specific height */
+    height: 330px; /* Change this value to make it taller or shorter */
+    overflow-y: auto; /* Adds scrolling if content is too large */
+}
+
+.instructions-list {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.instructions-list li {
+    margin-bottom: 2px;
+    line-height: 1.2;
+    font-size: 12px;
+}
+
+.warning {
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #ffeeba;
+    border-radius: var(--border-radius);
+    border: var(--border);
+    font-weight: 600;
+    color: #856404;
+    text-align: center;
+    font-size: 11px;
+}
+
+/* Right panel */
+.right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 65%;
+}
+
+/* Code display area */
+.code-display {
+    height: 100%;
+    border-radius: var(--border-radius);
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+.code-header {
+    background-color: lightgrey;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--border);
+}
+
+.code-header span {
+    font-weight: 600;
+}
+
+.copy-btn {
+    padding: 5px 10px;
+    border-radius: var(--border-radius);
+    border: var(--border);
+    background-color: var(--bg-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 2px 2px var(--main-color);
+    font-size: 13px;
+}
+
+.copy-btn:hover {
+    background-color: var(--input-focus);
+    color: white;
+}
+
+.copy-btn:active {
+    box-shadow: 0px 0px var(--main-color);
+    transform: translate(2px, 2px);
+}
+
+pre {
+    padding: 20px;
+    overflow: auto;
+    background-color: #f5f5f5;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    flex-grow: 1;
+    font-family: monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 100%;
+}
+
+/* Code highlighting */
+.code-with-highlighting {
+    color: var(--font-color);
+}
+
+.code-with-highlighting .keyword {
+    color: var(--code-keyword);
+    font-weight: bold;
+}
+
+.code-with-highlighting .string {
+    color: var(--code-string);
+}
+
+.code-with-highlighting .comment {
+    color: var(--code-comment);
+    font-style: italic;
+}
+
+.code-with-highlighting .function {
+    color: var(--code-function);
+    font-weight: bold;
+}
+
+.code-with-highlighting .variable {
+    color: var(--code-variable);
+}
+
+.code-with-highlighting .operator {
+    color: var(--code-operator);
+}
+
+.code-with-highlighting .number {
+    color: var(--code-number);
+}
+
+/* Footer */
+.footer {
+    padding: 10px;
+    background-color: var(--bg-color);
+    text-align: center;
+    border-top: var(--border);
+    font-weight: 600;
+    color: var(--font-color-sub);
+    font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .content-container {
+        flex-direction: column;
+    }
+    
+    .left-panel, .right-panel {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .settings-container {
+        flex-direction: column;
+    }
+    
+    .code-display {
+        min-height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .content-container {
+        padding: 10px;
+    }
+}
