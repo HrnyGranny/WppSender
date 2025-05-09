@@ -415,6 +415,20 @@ code {
     font-size: 20px;
 }
 
+.version-tag {
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+    font-size: 15px;
+    color: #999;
+    opacity: 0.7;
+    font-family: monospace;
+    z-index: 30; /* Mayor que el loader y el código para que siempre sea visible */
+    background-color: transparent;
+    pointer-events: none; /* Para que no interfiera con la selección del código */
+    user-select: none; /* Evitar que se seleccione al seleccionar código */
+}
+
 @keyframes pulse_414 {
   to {
     transform: scale(0.8);
