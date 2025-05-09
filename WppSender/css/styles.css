@@ -447,29 +447,62 @@ code {
     font-size: 13px;
 }
 
+.seo-text {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
     .content-container {
         flex-direction: column;
+        overflow-y: auto;
+        height: auto;
+        max-height: none;
+        padding-bottom: 20px;
     }
     
     .left-panel, .right-panel {
         flex: none;
         width: 100%;
         max-width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .left-panel {
+        max-height: none;
+        overflow-y: visible;
+    }
+    
+    .right-panel {
+        height: 400px; /* Altura fija para el panel de código en móvil */
+        display: block;
+        margin-top: 20px;
+    }
+    
+    .code-display {
+        height: 100%;
     }
     
     .settings-container {
         flex-direction: column;
     }
     
-    .code-display {
-        min-height: 350px;
-    }
-    
     .code-loader {
         top: 42px; /* Ajustar para pantallas más pequeñas si es necesario */
         height: calc(100% - 42px);
+    }
+    
+    /* Ajuste para asegurar que el footer quede al final */
+    body {
+        min-height: 100vh;
+    }
+    
+    /* Fecha de actualización en la versión */
+    .version-tag::after {
+        content: " (09-05-2025)";
+        font-size: 8px;
     }
 }
 
@@ -483,10 +516,33 @@ code {
     .content-container {
         padding: 10px;
     }
+    
+    .instructions-box {
+        height: auto;
+        max-height: none;
+    }
+    
+    .right-panel {
+        height: 350px; /* Altura ligeramente menor en dispositivos muy pequeños */
+    }
+    
+    /* Ajuste para los botones en móvil */
+    .submit-btn, .copy-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
 }
 
-.seo-text {
-    font-size: 12px;
-    color: #999;
-    margin-top: 5px;
+@media (max-width: 480px) {
+    .title {
+        font-size: 18px;
+    }
+    
+    .instructions-list li {
+        font-size: 14px;
+    }
+    
+    .right-panel {
+        height: 300px; /* Altura aún menor en dispositivos muy pequeños */
+    }
 }
