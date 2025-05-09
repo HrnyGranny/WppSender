@@ -2,12 +2,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const generateBtn = document.getElementById('generateBtn');
     const codeArea = document.getElementById('codeArea');
     const copyBtn = document.getElementById('copyBtn');
+    const codeLoader = document.querySelector('.code-loader');
     
     // Form elements
     const messageText = document.getElementById('messageText');
     const messageDelay = document.getElementById('messageDelay');
     const cycleDelay = document.getElementById('cycleDelay');
     const splitOption = document.getElementById('splitOption');
+    
+    // Initially show the loader and hide code area
+    codeArea.style.display = 'none';
+    codeLoader.style.display = 'flex';
+    
+    // Initially disable the copy button
+    copyBtn.classList.add('copy-btn-disabled');
     
     // Generate script when button is clicked
     generateBtn.addEventListener('click', function() {
@@ -19,6 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (!messages) {
             codeArea.textContent = '// Please enter at least one message to send';
+            // Hide loader and show code area
+            codeLoader.style.display = 'none';
+            codeArea.style.display = 'block';
+            
+            // Enable copy button even for error messages
+            copyBtn.classList.remove('copy-btn-disabled');
             return;
         }
         
@@ -27,6 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Display the generated script
         codeArea.textContent = generatedScript;
+        
+        // Hide loader and show code
+        codeLoader.style.display = 'none';
+        codeArea.style.display = 'block';
+        
+        // Enable the copy button
+        copyBtn.classList.remove('copy-btn-disabled');
         
         // Highlight effect
         codeArea.style.opacity = '0';
@@ -144,18 +165,18 @@ console.log("WhatsApp Loop Message Sender started. To stop, refresh the page.");
     
     // Copy to clipboard functionality
     copyBtn.addEventListener('click', function() {
-        const codeText = codeArea.textContent;
-        navigator.clipboard.writeText(codeText).then(() => {
-            // Change button text temporarily
-            const originalText = copyBtn.textContent;
-            copyBtn.textContent = 'Copied!';
-            
-            setTimeout(() => {
-                copyBtn.textContent = originalText;
-            }, 2000);
-        });
+        // Only copy if button is not disabled
+        if (!copyBtn.classList.contains('copy-btn-disabled')) {
+            const codeText = codeArea.textContent;
+            navigator.clipboard.writeText(codeText).then(() => {
+                // Change button text temporarily
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                }, 2000);
+            });
+        }
     });
-
-    // Initialize the script on page load
-    generateBtn.click();
 });

@@ -284,6 +284,7 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 100%;
+    position: relative;
 }
 
 .code-header {
@@ -293,6 +294,8 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: var(--border);
+    position: relative;
+    z-index: 20; /* Mayor z-index para asegurarnos que está por encima del loader */
 }
 
 .code-header span {
@@ -321,6 +324,25 @@ body {
     transform: translate(2px, 2px);
 }
 
+/* Botón de copiar desactivado */
+.copy-btn-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #ccc !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.copy-btn-disabled:hover {
+    background-color: #ccc !important;
+    color: var(--font-color) !important;
+}
+
+.copy-btn-disabled:active {
+    box-shadow: none !important;
+    transform: none !important;
+}
+
 pre {
     padding: 20px;
     overflow: auto;
@@ -333,6 +355,7 @@ pre {
     white-space: pre-wrap;
     word-wrap: break-word;
     max-width: 100%;
+    position: relative;
 }
 
 /* Code highlighting */
@@ -371,6 +394,44 @@ pre {
     color: var(--code-number);
 }
 
+/* From Uiverse.io by Pradeepsaranbishnoi */ 
+.code-loader {
+  color: #333;
+  font-family: Consolas, Menlo, Monaco, monospace;
+  font-weight: bold;
+  font-size: 100px;
+  opacity: 0.8;
+  position: absolute;
+  top: 45px; /* Ajustado para posicionarse debajo del header */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: #f5f5f5;
+  width: 100%;
+  height: calc(100% - 45px); /* Altura ajustada para dejar espacio para el header */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.code-loader span {
+  display: inline-block;
+  animation: pulse_414 0.4s alternate infinite ease-in-out;
+}
+
+.code-loader span:nth-child(odd) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse_414 {
+  to {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
 /* Footer */
 .footer {
     padding: 10px;
@@ -400,6 +461,11 @@ pre {
     
     .code-display {
         min-height: 350px;
+    }
+    
+    .code-loader {
+        top: 42px; /* Ajustar para pantallas más pequeñas si es necesario */
+        height: calc(100% - 42px);
     }
 }
 
