@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const splitOption = document.getElementById('splitOption');
     
     // Initially show the loader and hide code area
-    codeArea.style.display = 'none';
+    codeArea.parentElement.style.display = 'none'; // Ocultar el elemento pre que contiene el code
     codeLoader.style.display = 'flex';
     
     // Initially disable the copy button
@@ -29,7 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
             codeArea.textContent = '// Please enter at least one message to send';
             // Hide loader and show code area
             codeLoader.style.display = 'none';
-            codeArea.style.display = 'block';
+            codeArea.parentElement.style.display = 'block';
+            
+            // Aplicar resaltado de sintaxis
+            hljs.highlightElement(codeArea);
             
             // Enable copy button even for error messages
             copyBtn.classList.remove('copy-btn-disabled');
@@ -44,16 +47,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Hide loader and show code
         codeLoader.style.display = 'none';
-        codeArea.style.display = 'block';
+        codeArea.parentElement.style.display = 'block';
+        
+        // Aplicar resaltado de sintaxis
+        hljs.highlightElement(codeArea);
         
         // Enable the copy button
         copyBtn.classList.remove('copy-btn-disabled');
-        
-        // Highlight effect
-        codeArea.style.opacity = '0';
-        setTimeout(() => {
-            codeArea.style.opacity = '1';
-        }, 50);
     });
     
     // Function to generate the WhatsApp script with custom parameters
@@ -179,4 +179,7 @@ console.log("WhatsApp Loop Message Sender started. To stop, refresh the page.");
             });
         }
     });
+
+    // We don't automatically click the generateBtn on page load now
+    // The loader will show until the user clicks the generate button
 });

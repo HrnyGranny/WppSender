@@ -9,15 +9,6 @@
     --box-shadow: 4px 4px var(--main-color);
     --border: 2px solid var(--main-color);
     --border-radius: 5px;
-    
-    /* Code highlighting colors (retro style) */
-    --code-keyword: #8959a8;
-    --code-string: #718c00;
-    --code-comment: #969896;
-    --code-function: #4271ae;
-    --code-variable: #c82829;
-    --code-operator: #3e999f;
-    --code-number: #f5871f;
 }
 
 /* Estilos generales */
@@ -239,19 +230,19 @@ body {
     flex-shrink: 0;
 
     /* Add this to set a specific height */
-    height: 330px; /* Change this value to make it taller or shorter */
+    height: 290px; /* Change this value to make it taller or shorter */
     overflow-y: auto; /* Adds scrolling if content is too large */
 }
 
 .instructions-list {
     padding-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 }
 
 .instructions-list li {
     margin-bottom: 2px;
     line-height: 1.2;
-    font-size: 17px;
+    font-size: 13px;
 }
 
 .warning {
@@ -344,54 +335,35 @@ body {
 }
 
 pre {
-    padding: 20px;
+    padding: 0;
+    margin: 0;
     overflow: auto;
-    background-color: #f5f5f5;
+    background-color:  #f5f5f5;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     flex-grow: 1;
-    font-family: monospace;
-    font-size: 13px;
-    line-height: 1.5;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    max-width: 100%;
     position: relative;
 }
 
-/* Code highlighting */
-.code-with-highlighting {
-    color: var(--font-color);
+code {
+    font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 20px;
+    display: block;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: auto;
 }
 
-.code-with-highlighting .keyword {
-    color: var(--code-keyword);
-    font-weight: bold;
-}
-
-.code-with-highlighting .string {
-    color: var(--code-string);
-}
-
-.code-with-highlighting .comment {
-    color: var(--code-comment);
-    font-style: italic;
-}
-
-.code-with-highlighting .function {
-    color: var(--code-function);
-    font-weight: bold;
-}
-
-.code-with-highlighting .variable {
-    color: var(--code-variable);
-}
-
-.code-with-highlighting .operator {
-    color: var(--code-operator);
-}
-
-.code-with-highlighting .number {
-    color: var(--code-number);
+/* Personalización de highlight.js */
+.hljs {
+    background: #f5f5f5 !important;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    max-height: 100%;
+    color: #333 !important;
 }
 
 /* From Uiverse.io by Pradeepsaranbishnoi */ 
@@ -407,7 +379,6 @@ pre {
   right: 0;
   bottom: 0;
   z-index: 10;
-  background-color: #f5f5f5;
   width: 100%;
   height: calc(100% - 45px); /* Altura ajustada para dejar espacio para el header */
   display: flex;
@@ -423,6 +394,25 @@ pre {
 
 .code-loader span:nth-child(odd) {
   animation-delay: 0.4s;
+}
+
+/* Estilo para el enlace de GitHub */
+.github-link {
+    color: var(--font-color);
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+}
+
+.github-link:hover {
+    color: var(--input-focus);
+}
+
+.github-link i {
+    font-size: 20px;
 }
 
 @keyframes pulse_414 {
@@ -479,4 +469,10 @@ pre {
     .content-container {
         padding: 10px;
     }
+}
+
+.seo-text {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
 }
