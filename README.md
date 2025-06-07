@@ -4,12 +4,6 @@
   <img src="WppSender/assets/WppSender.png" alt="WppSender Logo" width="200"/>
 </p>
 
-<p align="center">
-  <a href="https://wppsender.netlify.app/">
-    <img src="https://img.shields.io/badge/VIEW_LIVE_APP-4df176?style=for-the-badge" alt="View Live App" />
-  </a>
-</p>
-
 ## 📱 About
 
 WppSender is a specialized web tool that generates JavaScript scripts for WhatsApp Web. These scripts allow you to send automated messages in loops or controlled cycles through your browser's console. Perfect for scheduled messaging, marketing campaigns, or any situation where you need to send multiple messages with controlled timing.
@@ -42,5 +36,7 @@ git clone https://github.com/HrnyGranny/WppSender.git
 ---
 
 <p align="center">
-  <a href="https://wppsender.netlify.app/">Try WppSender now</a>
+  <a href="https://wppsender.netlify.app/">
+    <img src="https://img.shields.io/badge/VIEW_LIVE_APP-4df176?style=for-the-badge" alt="View Live App" />
+  </a>
 </p>
