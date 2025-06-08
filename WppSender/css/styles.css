@@ -1,6 +1,6 @@
 /* Variables globales */
 :root {
-    --input-focus: #4df176;
+    --input-focus: #7530c0;
     --font-color: #323232;
     --font-color-sub: #666;
     --bg-color: #fff;
@@ -45,7 +45,7 @@ body {
 .navbar-title {
     font-size: 22px;
     font-weight: 900;
-    color: var(--main-color);
+    color: var(--input-focus);
 }
 
 .navbar-links {

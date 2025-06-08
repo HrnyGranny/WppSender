@@ -6,7 +6,7 @@
 
 ## 📱 About
 
-WppSender is a specialized web tool that generates JavaScript scripts for WhatsApp Web. These scripts allow you to send automated messages in loops or controlled cycles through your browser's console. Perfect for scheduled messaging, marketing campaigns, or any situation where you need to send multiple messages with controlled timing.
+WppSender is a specialized web tool that generates JavaScript scripts for WhatsApp Web. These scripts allow you to send automated messages in loops or controlled cycles through your browser's console. Perfect for scheduled messaging, marketing campaigns, or any situation where you need to send multiple messages with controlled timing. 
 
 ## ✨ Features
 
