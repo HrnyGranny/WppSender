@@ -43,7 +43,7 @@ WppSender is a specialized web tool that generates JavaScript scripts for WhatsA
 
 ## 🌐 Live Demo
 
-**🔗 [Try WppSender Live](https://wppsender.netlify.app/)**
+**🔗 [Try WppSender Live](https://hrnygranny.me/WppSender/)**
 
 Access the application directly in your browser - no installation required!
 
