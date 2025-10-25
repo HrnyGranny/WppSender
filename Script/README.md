@@ -22,7 +22,7 @@ The `WhatsAppSender` script takes a script text, processes it into lines, and se
 ---
 
 <p align="center">
-  <a href="https://wppsender.netlify.app/">
+  <a href="https://hrnygranny.me/WppSender/">
     <img src="https://img.shields.io/badge/TRY_WPPSENDER_NOW-4df176?style=for-the-badge&logoColor=white" alt="Try WppSender Now" />
   </a>
 </p>
