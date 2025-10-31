@@ -1,8 +1,7 @@
-# .github/workflows/deploy.yml
+# .github/workflows/deploy-pages.yml
 
-name: Deploy WppSender to GitHub Pages
+name: Deploy WppSender
 
-# Se activa cada vez que haces 'push' a la rama 'main'
 on:
   push:
     branches:
@@ -11,26 +10,26 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
+    # Habilitar permisos de escritura para el token GITHUB_TOKEN
+    permissions:
+      contents: write
+
     steps:
-      # 1. Descarga el código de tu rama 'main'
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Despliega forzadamente a 'gh-pages'
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          # Token para poder escribir en tu repo
+          # Esto usará el token que acabamos de habilitar
           github_token: ${{ secrets.GITHUB_TOKEN }}
           
           # La rama donde quieres publicar
           publish_branch: gh-pages
           
-          # ¡IMPORTANTE! 
           # La carpeta específica que quieres publicar
           publish_dir: ./WppSender
           
-          # ¡LA CLAVE! 
-          # Borra todo el historial y contenido anterior de 'gh-pages' 
-          # antes de publicar.
+          # Borra todo lo anterior en la rama 'gh-pages'
           force_orphan: true
