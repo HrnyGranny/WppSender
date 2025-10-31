@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>WppSender - Automated WhatsApp Message Loop Sender Tool</title>
+    <meta name="description" content="WppSender is a free tool that helps you send repetitive messages in WhatsApp Web. Configure custom delays, message loops, and more with this simple script generator.">
+    <meta name="keywords" content="WhatsApp sender, WhatsApp automation, WhatsApp bot, message loop, WhatsApp Web tool, WhatsApp script generator, message automation">
+    <meta name="author" content="HrnyGranny">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://hrnygranny.github.io/WppSender/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hrnygranny.github.io/WppSender/">
+    <meta property="og:title" content="WppSender - Automated WhatsApp Message Sender Tool">
+    <meta property="og:description" content="Send repeated messages on WhatsApp Web with customizable delays and options. Free and easy to use script generator.">
+    <meta property="og:image" content="https://hrnygranny.github.io/WppSender/img/wpp-sender-preview.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hrnygranny.github.io/WppSender/">
+    <meta property="twitter:title" content="WppSender - Automate WhatsApp Messages">
+    <meta property="twitter:description" content="Generate custom scripts to send repeated messages on WhatsApp Web with configurable delays and options.">
+    <meta property="twitter:image" content="https://hrnygranny.github.io/WppSender/img/wpp-sender-preview.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/WppSender.png">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/javascript.min.js"></script>
+    
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "WppSender",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "HrnyGranny",
+        "url": "https://github.com/hrnygranny"
+      },
+      "description": "A free tool to generate scripts for sending automated messages in WhatsApp Web",
+      "datePublished": "2025-05-09",
+      "url": "https://hrnygranny.github.io/WppSender/"
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar" aria-label="Main navigation">
+            <div class="navbar-title">
+                <img src="assets/WppSender.png" alt="WppSender Icon" style="height: 1.25em; vertical-align: middle; margin-right: 0.2em;">
+                WppSender
+            </div>
+            <div class="navbar-links">
+                <a href="https://github.com/hrnygranny" target="_blank" rel="noopener" class="github-link" aria-label="Visit HrnyGranny's GitHub profile">
+                    <i class="fab fa-github" aria-hidden="true"></i> HrnyGranny
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main class="content-container">
+        <!-- Left side - Form -->
+        <section class="left-panel">
+            <div class="form-box">
+                <h1 class="title">WhatsApp Message Loop Generator</h1>
+                <div class="form-content">
+                    <!-- Text to send -->
+                    <div class="form-group">
+                        <label for="messageText">Messages to Send:</label>
+                        <textarea id="messageText" class="inbox-input" placeholder="Enter messages here (one per line)..." aria-describedby="messageHelp">Hello!</textarea>
+                        <small id="messageHelp" class="form-text">Enter each message on a new line, or use commas/semicolons.</small>
+                    </div>
+                    
+                    <!-- Settings dropdowns -->
+                    <div class="settings-container">
+                        <div class="form-group">
+                            <label for="messageDelay">Delay Between Messages:</label>
+                            <select class="styled-dropdown" id="messageDelay" aria-label="Select delay between individual messages">
+                                <option value="100">100ms (Fast)</option>
+                                <option value="250" selected>250ms (Default)</option>
+                                <option value="500">500ms (Medium)</option>
+                                <option value="1000">1000ms (Slow)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cycleDelay">Delay Between Cycles:</label>
+                            <select class="styled-dropdown" id="cycleDelay" aria-label="Select delay between message cycles">
+                                <option value="1000">1s (Quick)</option>
+                                <option value="2000" selected>2s (Default)</option>
+                                <option value="5000">5s (Medium)</option>
+                                <option value="10000">10s (Long)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Additional options -->
+                    <div class="form-group">
+                        <label for="splitOption">Split Messages By:</label>
+                        <select class="styled-dropdown" id="splitOption" aria-label="Select how to split your messages">
+                            <option value="lines" selected>Lines (Default)</option>
+                            <option value="commas">Commas</option>
+                            <option value="semicolons">Semicolons</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Generate button -->
+                    <button class="submit-btn" id="generateBtn" aria-label="Generate WhatsApp script">Generate Script!</button>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="instructions-box">
+                <h2 class="title">How to Use</h2>
+                <ol class="instructions-list">
+                    <li>Configure your message settings above</li>
+                    <li>Click "Generate Script" to create your custom script</li>
+                    <li>Copy the generated code</li>
+                    <li>Open WhatsApp Web in your browser</li>
+                    <li>Open a chat where you want to send messages</li>
+                    <li>Press F12 to open browser Developer Tools</li>
+                    <li>Navigate to the "Console" tab</li>
+                    <li>Paste the code and press Enter</li>
+                    <li>To stop the script, refresh the page</li>
+                </ol>
+                <div class="warning" role="alert">⚠️ Use responsibly. Excessive message sending may result in temporary blocks.</div>
+            </div>
+        </section>
+
+        <!-- Right side - Code Display -->
+        <section class="right-panel">
+            <div class="code-display">
+                <div class="code-header">
+                    <span>Generated Script</span>
+                    <button class="copy-btn" id="copyBtn" aria-label="Copy script to clipboard">Copy</button>
+                </div>
+                <div class="code-loader" aria-hidden="true">
+                  <span>{</span><span>}</span>
+                </div>
+                <pre><code id="codeArea" class="language-javascript"></code></pre>
+                <div class="version-tag">v1.0</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 <a href="https://github.com/hrnygranny" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">HrnyGranny</a> - All rights reserved</p>
+        <p class="seo-text">WppSender is a free tool for generating scripts to send automated message loops in WhatsApp Web. No installation required.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
