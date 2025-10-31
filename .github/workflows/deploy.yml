@@ -10,26 +10,29 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
-    # Habilitar permisos de escritura para el token GITHUB_TOKEN
+    
+    # Da permisos de escritura al token de la acción
     permissions:
       contents: write
 
     steps:
+      # 1. Descarga el código de tu rama 'main'
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2. Despliega forzadamente a la rama 'deploy'
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          # Esto usará el token que acabamos de habilitar
+          # Token con permisos de escritura
           github_token: ${{ secrets.GITHUB_TOKEN }}
           
+          # ¡CAMBIO AQUÍ! 
           # La rama donde quieres publicar
-          publish_branch: gh-pages
+          publish_branch: deploy
           
           # La carpeta específica que quieres publicar
           publish_dir: ./WppSender
           
-          # Borra todo lo anterior en la rama 'gh-pages'
+          # Borra todo el historial y contenido anterior de 'deploy'
           force_orphan: true
